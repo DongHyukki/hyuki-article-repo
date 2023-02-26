@@ -37,8 +37,6 @@ subprojects {
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("io.projectreactor:reactor-test")
-
-        // compileOnly("com.github.jasync-sql:jasync-mysql:2.1.16")
     }
 
     tasks.getByName("bootJar") {
