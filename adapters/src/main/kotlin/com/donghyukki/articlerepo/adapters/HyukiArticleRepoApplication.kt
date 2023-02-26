@@ -1,9 +1,9 @@
-package com.donghyukki.hyukiarticlerepo
+package com.donghyukki.articlerepo.adapters
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["com.donghyukki.articlerepo"])
 class HyukiArticleRepoApplication
 
 fun main(args: Array<String>) {
