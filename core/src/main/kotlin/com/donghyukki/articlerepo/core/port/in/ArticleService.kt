@@ -12,4 +12,12 @@ class ArticleService(
     suspend fun saveArticle(article: Article): Article {
         return articleRepository.save(article)
     }
+
+    suspend fun findArticleById(id: Long): Article {
+        return checkNotNull(articleRepository.findById(id))
+    }
+
+    suspend fun findAllArticles(): List<Article> {
+        return articleRepository.findAllOrderByDesc()
+    }
 }

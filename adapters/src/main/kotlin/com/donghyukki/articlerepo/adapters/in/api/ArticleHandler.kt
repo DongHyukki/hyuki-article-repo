@@ -23,4 +23,10 @@ class ArticleHandler(
         // TODO: CONVERT TO UI MODEL
         return ServerResponse.ok().bodyValueAndAwait(savedArticle)
     }
+
+    suspend fun findAllArticles(serverRequest: ServerRequest): ServerResponse {
+        val articles = articleService.findAllArticles()
+
+        return ServerResponse.ok().bodyValueAndAwait(articles)
+    }
 }

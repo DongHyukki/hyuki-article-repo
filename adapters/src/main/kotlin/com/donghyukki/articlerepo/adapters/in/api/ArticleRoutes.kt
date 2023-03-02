@@ -19,6 +19,7 @@ class ArticleRoutes(
         ARTICLE_API_PREFIX.nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 POST("", articleHandler::saveArticle)
+                GET("", articleHandler::findAllArticles)
             }
         }
     }
