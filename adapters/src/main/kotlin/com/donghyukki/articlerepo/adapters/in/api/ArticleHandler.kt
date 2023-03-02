@@ -1,5 +1,6 @@
 package com.donghyukki.articlerepo.adapters.`in`.api
 
+import com.donghyukki.articlerepo.adapters.`in`.api.dto.ApiResponse
 import com.donghyukki.articlerepo.adapters.`in`.api.dto.ArticleRequests
 import com.donghyukki.articlerepo.core.port.`in`.ArticleService
 import kotlinx.coroutines.reactor.awaitSingle
@@ -20,13 +21,11 @@ class ArticleHandler(
             .awaitSingle()
 
         val savedArticle = articleService.saveArticle(request.toModel())
-        // TODO: CONVERT TO UI MODEL
-        return ServerResponse.ok().bodyValueAndAwait(savedArticle)
+        return ServerResponse.ok().bodyValueAndAwait(ApiResponse.success(savedArticle))
     }
 
     suspend fun findAllArticles(serverRequest: ServerRequest): ServerResponse {
         val articles = articleService.findAllArticles()
-
-        return ServerResponse.ok().bodyValueAndAwait(articles)
+        return ServerResponse.ok().bodyValueAndAwait(ApiResponse.success(articles))
     }
 }
