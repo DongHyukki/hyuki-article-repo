@@ -19,6 +19,9 @@ allprojects {
 
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+val kotestVersion = "5.5.5"
+val kotestSpringExtensionVersion = "1.1.2"
+
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
@@ -36,6 +39,8 @@ subprojects {
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+        testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestSpringExtensionVersion")
         testImplementation("io.projectreactor:reactor-test")
     }
 
