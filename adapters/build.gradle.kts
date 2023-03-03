@@ -1,10 +1,26 @@
+plugins {
+    id("org.flywaydb.flyway") version "9.8.1"
+}
+
+val kotestSpringExtensionVersion = "1.1.2"
+val kotestTestContainerExtensionVersion = "1.3.4"
+
 dependencies {
+    implementation(project(":core"))
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 
-    compileOnly("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.23")
-    implementation(project(":core"))
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-mysql:8.5.13")
 
-    testImplementation("io.r2dbc:r2dbc-h2:1.0.0.RELEASE")
+    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.23")
+
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestSpringExtensionVersion")
+    testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:$kotestTestContainerExtensionVersion")
+
+    testImplementation("org.testcontainers:junit-jupiter:1.17.6")
+    testImplementation("org.testcontainers:mysql:1.17.6")
+    testImplementation("org.testcontainers:r2dbc:1.17.6")
+    testRuntimeOnly("com.mysql:mysql-connector-j")
 }
 
 tasks.getByName("bootJar") {

@@ -1,15 +1,17 @@
 package com.donghyukki.articlerepo.adapters.`in`.api
 
-import com.donghyukki.articlerepo.adapters.KotestSpringContextRunner
+import com.donghyukki.articlerepo.adapters.AbstractMysqlTest
 import com.donghyukki.articlerepo.adapters.`in`.api.dto.ArticleRequests
 import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.shouldBe
+import org.hamcrest.Matchers.`is`
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.test.web.reactive.server.WebTestClient
 import reactor.kotlin.core.publisher.toMono
 
+@AutoConfigureWebTestClient(timeout = "PT10M")
 internal class ArticleApiTest(
     private val client: WebTestClient
-) : KotestSpringContextRunner, BehaviorSpec({
+) : AbstractMysqlTest, BehaviorSpec({
 
     Given("Article 저장") {
         When("정상적인 요청일때") {
@@ -21,7 +23,7 @@ internal class ArticleApiTest(
                     .expectStatus()
                     .isOk
                     .expectBody()
-                    .jsonPath("$.data", shouldBe("test.url"))
+                    .jsonPath("$.data", `is`("test.url"))
             }
         }
     }
