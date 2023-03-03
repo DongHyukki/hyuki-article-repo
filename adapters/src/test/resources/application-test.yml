@@ -1,9 +1,3 @@
-spring:
-  r2dbc:
-    url: r2dbc:kkk
-    username: root
-    password: test
-
 logging:
   level:
     org:

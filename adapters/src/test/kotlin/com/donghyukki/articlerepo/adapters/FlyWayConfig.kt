@@ -9,7 +9,7 @@ import org.springframework.test.context.ActiveProfiles
 @Configuration
 @Order(1)
 class FlyWayConfig(
-    private val flyway: Flyway
+    flyway: Flyway
 ) {
     init {
         flyway.migrate()
