@@ -1,6 +1,6 @@
 package com.donghyukki.articlerepo.adapters.`in`.api
 
-import com.donghyukki.articlerepo.adapters.AbstractMysqlTest
+import com.donghyukki.articlerepo.adapters.AbstractR2dbcTest
 import com.donghyukki.articlerepo.adapters.`in`.api.dto.ArticleRequests
 import io.kotest.core.spec.style.BehaviorSpec
 import org.hamcrest.Matchers.`is`
@@ -11,7 +11,7 @@ import reactor.kotlin.core.publisher.toMono
 @AutoConfigureWebTestClient(timeout = "PT10M")
 internal class ArticleApiTest(
     private val client: WebTestClient
-) : AbstractMysqlTest, BehaviorSpec({
+) : AbstractR2dbcTest, BehaviorSpec({
 
     Given("Article 저장") {
         When("정상적인 요청일때") {

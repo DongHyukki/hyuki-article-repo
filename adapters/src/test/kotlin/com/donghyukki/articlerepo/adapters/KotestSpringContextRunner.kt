@@ -9,5 +9,5 @@ import org.springframework.test.context.ActiveProfiles
     classes = [KotestSpringContextConfigurer::class]
 )
 @ActiveProfiles("test")
-@Import(AbstractMysqlTest::class)
+@Import(AbstractR2dbcTest::class)
 interface KotestSpringContextRunner

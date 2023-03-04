@@ -14,7 +14,6 @@ import org.springframework.web.reactive.function.server.bodyValueAndAwait
 class ArticleHandler(
     private val articleService: ArticleService
 ) {
-
     suspend fun saveArticle(serverRequest: ServerRequest): ServerResponse {
         val request = serverRequest
             .bodyToMono<ArticleRequests.SaveRequest>()
