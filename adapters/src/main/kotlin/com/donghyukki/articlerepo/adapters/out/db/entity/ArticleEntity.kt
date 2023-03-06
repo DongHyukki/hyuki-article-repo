@@ -1,5 +1,6 @@
 package com.donghyukki.articlerepo.adapters.out.db.entity
 
+import com.donghyukki.articlerepo.core.domain.ArticleMetaData
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
@@ -7,5 +8,6 @@ import org.springframework.data.relational.core.mapping.Table
 data class ArticleEntity(
     @Id
     val id: Long = 0,
-    val url: String
+    val url: String,
+    val metaData: ArticleMetaData
 )

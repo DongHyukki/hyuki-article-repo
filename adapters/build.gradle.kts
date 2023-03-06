@@ -13,6 +13,7 @@ dependencies {
     implementation("org.flywaydb:flyway-mysql:8.5.13")
 
     implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.1.23")
+    implementation("org.jsoup:jsoup:1.15.4")
 
     testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestSpringExtensionVersion")
     testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:$kotestTestContainerExtensionVersion")

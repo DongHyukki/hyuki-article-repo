@@ -3,6 +3,7 @@ package com.donghyukki.articlerepo.adapters.`in`.api
 import com.donghyukki.articlerepo.adapters.`in`.api.dto.ApiResponse
 import com.donghyukki.articlerepo.adapters.`in`.api.dto.ArticleRequests
 import com.donghyukki.articlerepo.core.port.`in`.ArticleService
+import com.donghyukki.articlerepo.core.port.`in`.dto.ArticleServiceDTO
 import kotlinx.coroutines.reactor.awaitSingle
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
@@ -19,7 +20,7 @@ class ArticleHandler(
             .bodyToMono<ArticleRequests.SaveRequest>()
             .awaitSingle()
 
-        val savedArticle = articleService.saveArticle(request.toModel())
+        val savedArticle = articleService.saveArticle(ArticleServiceDTO.Save(request.url))
         return ServerResponse.ok().bodyValueAndAwait(ApiResponse.success(savedArticle))
     }
 

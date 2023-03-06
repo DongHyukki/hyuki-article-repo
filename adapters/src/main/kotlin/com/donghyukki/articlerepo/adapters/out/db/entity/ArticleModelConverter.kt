@@ -9,21 +9,24 @@ object ArticleModelConverter {
     fun toEntity(article: Article): ArticleEntity {
         return ArticleEntity(
             id = article.getId(),
-            url = article.getUrl()
+            url = article.getUrl(),
+            metaData = article.getMetaData()
         )
     }
 
     fun toModel(articleEntity: ArticleEntity): Article {
         return Article(
             id = articleEntity.id,
-            url = articleEntity.url
+            url = articleEntity.url,
+            metaData = articleEntity.metaData
         )
     }
 
     fun toMonoModel(articleEntity: ArticleEntity): Mono<Article> {
         return Article(
             id = articleEntity.id,
-            url = articleEntity.url
+            url = articleEntity.url,
+            metaData = articleEntity.metaData
         ).toMono()
     }
 }
