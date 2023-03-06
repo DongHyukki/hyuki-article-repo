@@ -24,6 +24,25 @@ dependencies {
     testRuntimeOnly("com.mysql:mysql-connector-j")
 }
 
+buildscript {
+    dependencies {
+        classpath("org.flywaydb:flyway-mysql:8.5.13")
+    }
+}
+
+flyway {
+    url = "jdbc:mysql://localhost:3308?useSSL=false&allowPublicKeyRetrieval=true"
+    user = "root"
+    password = "root"
+    locations = arrayOf("filesystem:src/main/resources/db/migration/")
+    schemas = arrayOf("article-repo")
+    createSchemas = true
+    encoding = "utf8"
+    baselineOnMigrate = true
+    cleanDisabled = false
+    failOnMissingLocations = true
+}
+
 tasks.getByName("bootJar") {
     enabled = true
 }

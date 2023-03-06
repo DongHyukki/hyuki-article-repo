@@ -15,6 +15,7 @@ import org.springframework.data.relational.core.query.Criteria
 import org.springframework.data.relational.core.query.CriteriaDefinition
 import org.springframework.data.relational.core.query.Query.query
 import org.springframework.stereotype.Repository
+import reactor.kotlin.core.publisher.toMono
 
 @Repository
 class R2dbcArticleRepository(
@@ -56,7 +57,7 @@ class R2dbcArticleRepository(
                     Sort.by(desc("id"))
                 )
             ).all()
-            .flatMap { ArticleModelConverter.toMonoModel(it) }
+            .flatMap { ArticleModelConverter.toModel(it).toMono() }
             .asFlow()
             .toList()
     }
