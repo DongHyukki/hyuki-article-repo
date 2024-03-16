@@ -1,6 +1,6 @@
-package com.donghyukki.articlerepo.core.port.out
+package com.donghyukki.articlerepo.core.port.article.out
 
-import com.donghyukki.articlerepo.core.domain.Article
+import com.donghyukki.articlerepo.core.domain.article.model.Article
 
 interface ArticleRepository {
     suspend fun save(article: Article): Article

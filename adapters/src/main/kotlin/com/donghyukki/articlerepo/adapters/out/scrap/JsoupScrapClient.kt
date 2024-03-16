@@ -1,7 +1,7 @@
 package com.donghyukki.articlerepo.adapters.out.scrap
 
-import com.donghyukki.articlerepo.core.domain.ScrappedData
-import com.donghyukki.articlerepo.core.port.out.ArticleScrapClient
+import com.donghyukki.articlerepo.core.domain.article.model.ScrappedData
+import com.donghyukki.articlerepo.core.port.article.out.ArticleScrapClient
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.springframework.stereotype.Component

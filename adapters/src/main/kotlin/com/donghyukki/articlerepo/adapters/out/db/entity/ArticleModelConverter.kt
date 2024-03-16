@@ -1,9 +1,7 @@
 package com.donghyukki.articlerepo.adapters.out.db.entity
 
-import com.donghyukki.articlerepo.core.domain.Article
-import com.donghyukki.articlerepo.core.domain.ArticleMetaData
-import reactor.core.publisher.Mono
-import reactor.kotlin.core.publisher.toMono
+import com.donghyukki.articlerepo.core.domain.article.model.Article
+import com.donghyukki.articlerepo.core.domain.article.model.ArticleMetaData
 
 object ArticleModelConverter {
 

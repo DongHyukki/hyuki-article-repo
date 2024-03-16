@@ -1,4 +1,4 @@
-package com.donghyukki.articlerepo.adapters.extensions
+package com.donghyukki.articlerepo.support.extensions
 
 import org.springframework.http.HttpStatus
 

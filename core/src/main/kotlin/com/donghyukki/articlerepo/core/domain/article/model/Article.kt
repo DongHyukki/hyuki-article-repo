@@ -1,4 +1,4 @@
-package com.donghyukki.articlerepo.core.domain
+package com.donghyukki.articlerepo.core.domain.article.model
 
 class Article(
     private val id: Long,

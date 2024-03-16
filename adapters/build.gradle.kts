@@ -7,6 +7,7 @@ val kotestTestContainerExtensionVersion = "1.3.4"
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":support"))
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 
     implementation("org.flywaydb:flyway-core")

@@ -1,26 +1,27 @@
 package com.donghyukki.articlerepo.adapters.`in`.api
 
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import org.springframework.http.MediaType
-import org.springframework.web.reactive.function.server.coRouter
+import com.donghyukki.articlerepo.adapters.`in`.api.dto.ApiResponse
+import com.donghyukki.articlerepo.adapters.`in`.api.dto.ArticleRequests
+import com.donghyukki.articlerepo.core.domain.article.model.Article
+import com.donghyukki.articlerepo.core.port.article.`in`.ArticleUseCase
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
-@Configuration
+@RequestMapping("/api/v1/article")
+@RestController
 class ArticleRoutes(
-    private val articleHandler: ArticleHandler
+    private val articleUseCase: ArticleUseCase
 ) {
 
-    companion object {
-        const val ARTICLE_API_PREFIX = "/api/v1/article"
+    @GetMapping
+    suspend fun getAllArticles(): ApiResponse<List<Article>> {
+        return ApiResponse.success(articleUseCase.findAllArticles())
     }
 
-    @Bean
-    fun route() = coRouter {
-        ARTICLE_API_PREFIX.nest {
-            accept(MediaType.APPLICATION_JSON).nest {
-                POST("", articleHandler::saveArticle)
-                GET("", articleHandler::findAllArticles)
-            }
-        }
+    @PostMapping
+    suspend fun saveArticle(request: ArticleRequests.SaveRequest): ApiResponse<Article> {
+        return ApiResponse.success(articleUseCase.saveArticle(request.toCommand()))
     }
 }

@@ -1,6 +1,6 @@
 package com.donghyukki.articlerepo.adapters.`in`.api.dto
 
-import com.donghyukki.articlerepo.adapters.extensions.toCode
+import com.donghyukki.articlerepo.support.extensions.toCode
 import org.springframework.http.HttpStatus
 
 data class ApiResponse<T>(

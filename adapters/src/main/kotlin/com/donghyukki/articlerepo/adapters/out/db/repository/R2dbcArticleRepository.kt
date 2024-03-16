@@ -2,8 +2,8 @@ package com.donghyukki.articlerepo.adapters.out.db.repository
 
 import com.donghyukki.articlerepo.adapters.out.db.entity.ArticleEntity
 import com.donghyukki.articlerepo.adapters.out.db.entity.ArticleModelConverter
-import com.donghyukki.articlerepo.core.domain.Article
-import com.donghyukki.articlerepo.core.port.out.ArticleRepository
+import com.donghyukki.articlerepo.core.domain.article.model.Article
+import com.donghyukki.articlerepo.core.port.article.out.ArticleRepository
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactor.awaitSingle
