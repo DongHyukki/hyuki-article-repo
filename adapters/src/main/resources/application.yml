@@ -1,8 +1,0 @@
-spring:
-  config:
-    activate:
-      on-profile: local
-  r2dbc:
-    url: r2dbc:mysql://localhost:3308/article-repo?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: root

@@ -1,4 +1,5 @@
 rootProject.name = "hyuki-article-repo"
-include("core")
-include("adapters")
-include("support")
+include("backend:core")
+include("backend:adapters")
+include("backend:support")
+include("frontend")

@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3308/article-repo?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  level:
+    root: info
